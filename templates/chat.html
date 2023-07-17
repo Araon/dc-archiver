@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Discord Chat Archive</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #36393f;
+            color: #dcddde;
+        }
+        .message {
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .message-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+        .message-header .author {
+            font-weight: bold;
+            margin-left: 10px;
+            color: aquamarine;
+        }
+        .message .timestamp {
+            font-size: 0.8em;
+            color: #ffffff;
+        }
+        .message img {
+            width: 40px;
+            height: 40px;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Famous Lines</h1>
+    {% for message in chat_data %}
+    <div class="message">
+        <div class="message-header">
+            {% if message.author_avatar_url != "None" %}
+                <img src="{{ message.author_avatar_url }}" alt="{{ message.author }}'s avatar">
+            {% endif %}
+            <p class="author">{{ message.author }}</p>
+        </div>
+        <p>{{ message.content | safe }}</p>
+        <p class="timestamp"><small>{{ message.timestamp }}</small></p>
+    </div>
+    {% endfor %}
+</body>
+</html>
