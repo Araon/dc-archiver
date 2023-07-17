@@ -2,6 +2,8 @@
 
 A simple Python script that exports a Discord channel's chat history into a static website that mimics the look of Discord's dark theme.
 
+This uses a discord bot token, so make sure the bot is in the server and has access to the channel you want to export.
+
 ## Preview
 ![Screenshot](./unnamed.png)
 
